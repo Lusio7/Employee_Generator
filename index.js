@@ -10,6 +10,27 @@ const teamMembers = [
     //   new Engineer("Chaz", 2, "chaz@heiscool.com", "viachaz"),
     //   new Intern("vas", 3, "vas@heiscool.com", "UofA"),
     //   new Intern("Caleb", 4, "caleb@heiscool.com", "ASU")
-    ];
+];
 
-    
+function createManager() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your manager's name?"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "What is your manager's id?"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your manager's email?"
+        },
+        {
+            type: "input",
+            name: "office",
+            message: "What is your manager's office number?"
+        }
