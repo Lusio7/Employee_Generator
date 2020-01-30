@@ -99,3 +99,35 @@ function createEngineer () {
     });
 
 }
+
+function createIntern () {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your intern's name?"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "What is your intern's id?"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your intern's email?"
+        },
+        {
+            type: "input",
+            name: "school",
+            message: "What is your intern's school?"
+        }
+
+    ]).then(function (answers) {
+        const intern = new Intern(answers.name, parseInt(answers.id), answers.email, answers.school);
+        teamMembers.push(intern);
+        addMember();
+    });
+
+}
+createManager();
