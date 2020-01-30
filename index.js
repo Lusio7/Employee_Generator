@@ -42,3 +42,60 @@ function createManager() {
     });
 }
 
+function addMember() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "type",
+            message: "Which type of team member would you like to add?",
+            choices: [
+                "Engineer",
+                "Intern",
+                "I don't want to add any more team members"
+            ]
+
+        }
+    ]).then(function(answer) {
+        if(answer.type === "Engineer") {
+            createEngineer();
+        }
+        else if (answer.type === "Intern") {
+            createIntern();
+        }
+        else {
+            render(teamMembers);
+        }
+
+    })
+}
+
+function createEngineer () {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your engineer's name?"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "What is your engineer's id?"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your engineer's email?"
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "What is your engineer's github?"
+        }
+
+    ]).then(function (answers) {
+        const engineer = new Engineer(answers.name, parseInt(answers.id), answers.email, answers.github);
+        teamMembers.push(engineer);
+        addMember();
+    });
+
+}
