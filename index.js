@@ -34,3 +34,11 @@ function createManager() {
             name: "office",
             message: "What is your manager's office number?"
         }
+
+    ]).then(function (answers) {
+        const manager = new Manager(answers.name, parseInt(answers.id), answers.email, parseInt(answers.office));
+        teamMembers.push(manager);
+        addMember();
+    });
+}
+
